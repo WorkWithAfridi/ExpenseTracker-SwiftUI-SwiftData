@@ -12,7 +12,8 @@ struct DashboardView: View {
     @Environment(\.modelContext) private var modelContext
 
     @State private var isShowingItemSheet = false
-    @Query(sort: \ExpenseModel.date) var expenses: [ExpenseModel]
+    @Query(filter: #Predicate<ExpenseModel> { $0.value > 1000}, sort: \ExpenseModel.date  ) var expenses: [ExpenseModel] // Filters the data
+//    @Query(sort: \ExpenseModel.date) var expenses: [ExpenseModel] // Just fetches the data
     @State private var expenseToEdit: ExpenseModel?
     
     var body: some View {
