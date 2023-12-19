@@ -13,6 +13,7 @@ struct DashboardView: View {
 
     @State private var isShowingItemSheet = false
     @Query(sort: \ExpenseModel.date) var expenses: [ExpenseModel]
+    @State private var expenseToEdit: ExpenseModel?
     
     var body: some View {
         NavigationStack{
@@ -20,6 +21,9 @@ struct DashboardView: View {
                 ForEach(expenses){
                     expense in
                     ExpenseCell(expense: expense)
+                        .onTapGesture {
+                            expenseToEdit = expense
+                        }
                 }
                 .onDelete(perform: { indexSet in
                     for index in indexSet {
@@ -31,6 +35,9 @@ struct DashboardView: View {
             .navigationBarTitleDisplayMode(.large)
             .sheet(isPresented: $isShowingItemSheet, content: {
                 AddExpenseSheet()
+            })
+            .sheet(item: $expenseToEdit, content: { expense in
+                EditExpenseSheet(expense: expense)
             })
             .toolbar{
                 if !expenses.isEmpty {
@@ -109,6 +116,34 @@ struct AddExpenseSheet: View{
     }
 }
 
+struct EditExpenseSheet: View{
+    @Environment(\.modelContext) private var modelContext
+    
+    @Environment(\.dismiss) private var dismiss
+    
+    @Bindable var expense: ExpenseModel
+    
+    var body: some View{
+        NavigationStack{
+            Form{
+                TextField("Expense Name", text: $expense.name)
+                DatePicker("Date", selection: $expense.date, displayedComponents: .date)
+                TextField("Value", value: $expense.value, format: .currency(code: "USD"))
+            }
+            .navigationTitle("Editing Expense")
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar{
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Text("Done")
+                    })
+                }
+            }
+        }
+    }
+}
 #Preview {
     DashboardView()
 }

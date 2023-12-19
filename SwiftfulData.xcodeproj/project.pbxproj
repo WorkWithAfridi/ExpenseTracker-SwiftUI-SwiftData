@@ -23,6 +23,7 @@
 		EF6AEABE2B31A89E002AEB7C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF6AEACB2B31B2E1002AEB7C /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		EF6AEACD2B31B5FC002AEB7C /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		EF6AEACF2B31CAE5002AEB7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +56,7 @@
 		EF6AEAB62B31A89C002AEB7C /* SwiftfulData */ = {
 			isa = PBXGroup;
 			children = (
+				EF6AEACF2B31CAE5002AEB7C /* Info.plist */,
 				EF6AEAC82B31B2A0002AEB7C /* Views */,
 				EF6AEAC62B31B272002AEB7C /* Core */,
 				EF6AEABD2B31A89E002AEB7C /* Preview Content */,
@@ -323,6 +325,7 @@
 				DEVELOPMENT_TEAM = 922L4HAC7Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftfulData/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -352,6 +355,7 @@
 				DEVELOPMENT_TEAM = 922L4HAC7Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftfulData/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
